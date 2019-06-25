@@ -1,13 +1,14 @@
 #!/usr/bin/python3
+#utility module
 
 class dataset:
     '''Represents a 2D array of string data, with column headers'''
     
     def __init__(self, data, headers, delimiter='\t'):
         '''data is either delimited string, or 2d list, must have same number of
-           column headers as columns in data. Headers must be 2d list'''
+           column headers as columns in data. Headers must be 1d list'''
         if type(data) == str:
-            self.data = [line.split(delimiter) for line in data.split('\n')]
+            self.data = [line.split(delimiter) for line in data.splitlines()]
         else:
             self.data = data
         self.headers = headers
@@ -36,4 +37,5 @@ class dataset:
            and returns the *string* value of the new field'''
         self.headers.append(col_name)
         for row in self.data:
+            print(*row)
             row.append(field_func(*row))
