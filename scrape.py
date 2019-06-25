@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+#Run this file to download the data from the phenix website.
+#Requires requests and lxml packages.
+#pip install requests lxml
+
 import requests, os
 from lxml import html
 from urllib.parse import urljoin
