@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 class dataset:
-    '''Represents a 2D array of string data'''
+    '''Represents a 2D array of string data, with column headers'''
     
     def __init__(self, data, headers, delimiter='\t'):
         '''data is either delimited string, or 2d list, must have same number of
@@ -11,6 +11,7 @@ class dataset:
         else:
             self.data = data
         self.headers = headers
+    
     
     def __str__(self):
         '''str representation as a formatted table'''
@@ -27,6 +28,7 @@ class dataset:
                     for c, field in enumerate(row))
                 for row in table)
         return s
+    
     
     def create_column(self, col_name, field_func):
         '''creates a new column of data using the given function.
