@@ -37,5 +37,4 @@ class dataset:
            and returns the *string* value of the new field'''
         self.headers.append(col_name)
         for row in self.data:
-            print(*row)
             row.append(field_func(*row))
