@@ -6,12 +6,15 @@ class dataset:
     
     def __init__(self, data, headers, delimiter='\t'):
         '''data is either delimited string, or 2d list, must have same number of
-           column headers as columns in data. Headers must be 1d list'''
+           column headers as columns in data. Headers must be an iterable of
+           strings. If the same number of headers as columns in data is not
+           provided, behavior is undefined. If data is a jagged array,
+           behavior is undefined.'''
         if type(data) == str:
             self.data = [line.split(delimiter) for line in data.splitlines()]
         else:
             self.data = data
-        self.headers = headers
+        self.headers = list(headers)
     
     
     def __str__(self):
